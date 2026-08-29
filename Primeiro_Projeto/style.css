@@ -5,23 +5,177 @@
     padding: 0;
 }
 
-h1{
-    color: green;
+/*=====================================VARIÁVEIS DE CORES DO PROJETO=====================================*/
+
+:root{
+--cor-fundo: #F4F7FB; /* Cor de fundo principal da página */
+--cor-card: #FFFFFF;/* Cor de fundo dos cards */
+--cor-titulo: #2563EB;/* Cor dos títulos */
+--cor-destaque: #7C3AED;/* Cor utilizada para destaques */
+--cor-texto-principal: #1F2937;/* Cor principal dos textos */
+--cor-texto-secundario: #6B7280;/* Cor secundária dos textos */
+--cor-borda: #D1D5DB;/* Cor das bordas */
+
 }
+
+/*=====================================CABEÇALHO=====================================*/
+
+header {
+margin-bottom: 32px; /* Centraliza o conteúdo do cabeçalho */
+text-align: center; /* Adiciona espaçamento abaixo do cabeçalho */
+}
+
+h1, h2 {
+font-family: "Poppins", sans-serif; /* Fonte utilizada nos títulos */
+color: #2563EB; /* Cor azul definida para os títulos */
+font-size: 36px; /* Tamanho do título principal */
+margin-top: 0; /* Remove a margem superior padrão *
+
+/* Espaçamento abaixo do título */
+margin-bottom: 10px;
+
+}
+header, h1 {
+    margin-bottom: 12px; /* Adiciona espaçamento abaixo do cabeçalho */
+    color: #2563EB; /* Define a cor azul para o cabeçalho */
+}
+
+p {
+font-family: "Elms Sans", sans-serif; /* Define a fonte principal para textos e parágrafos */
+}
+
+header p {
+    color: #6B7280; /* Define a cor secundária para o texto do cabeçalho */
+}
+
+/*=====================================CONTEÚDO PRINCIPAL=====================================*/
+
+main {
+max-width: 1100px; /* Define uma largura máxima para o conteúdo */
+margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+padding: 20px; /* Adiciona espaço interno nas laterais */
+}
+
+/*=====================================SEÇÃO DOS CARDS=====================================*/
 
 section {
-    height: 40vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: yellow;
+display: flex; /* Ativa o Flexbox */
+flex-direction: row; /* Permite que os cards fiquem lado a lado */
+gap: 24px; /* Cria espaçamento entre os cards */
+justify-content: center; /* Centraliza os cards dentro da seção */
+flex-wrap: wrap; /* Permite que os cards quebrem linha em telas menores */
+
 }
 
-article{
-    border: solid red;
-    width: 20%;
+/*=====================================CARDS=====================================*/
+
+article {
+background-color: #FFFFFF; /* Define o fundo branco dos cards */
+border: 1px solid #D1D5DB; /* Define a borda dos cards */
+border-radius: 10px; /* Arredonda os cantos dos cards */
+padding: 25px; /* Espaçamento interno do conteúdo */
+flex: 1; /* Define uma largura inicial para cada card */
+min-width: 250px; /* Garante uma largura mínima para os cards */
+box-sizing: border-box; /* Faz o tamanho incluir padding e borda */
 }
 
-.primeiroParagrafo{
-    color: blue;
+/*=====================================TÍTULOS DOS CARDS=====================================*/
+
+article h2 {
+font-family: "Poppins", sans-serif; /* Utiliza Poppins nos títulos */
+color: #2563EB; /* Cor azul dos títulos */
+font-size: 24px; /* Tamanho dos títulos */
+margin-top: 0; /* Espaçamento abaixo do título */
+margin-bottom: 15px;
+
+}
+
+/*=====================================PARÁGRAFOS DOS CARDS=====================================*/
+
+article p {
+font-family: "Elms Sans", sans-serif; /* Define a fonte dos textos */
+color: #1F2937; /* Define a cor principal do texto */
+font-size: 16px; /* Define o tamanho do texto */
+line-height: 1.6; /* Define o espaçamento entre as linhas */
+margin-top: 0; /* Remove a margem superior padrão */
+}
+
+/*=====================================DESTAQUE=====================================*/
+
+.primeiroParagrafo {
+font-weight: 500; /* Deixa o texto um pouco mais destacado */
+
+}
+
+/*=====================================ANIMAÇÕES=====================================*/
+
+article {
+/* Cria uma transição suave para as mudanças do card */
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Quando o mouse passa sobre o card */
+article:hover {
+/* Move o card levemente para cima */
+transform: translateY(-8px);
+
+/* Cria uma sombra ao redor do card */
+box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+
+/* Altera a cor da borda durante o hover */
+border-color: var(--cor-titulo);
+
+}
+
+/*=====================================RODAPÉ=====================================*/
+
+footer {
+/* Centraliza o texto do rodapé */
+text-align: center;
+
+/* Espaçamento interno */
+padding: 30px 20px;
+
+/* Espaçamento superior */
+margin-top: 30px;
+
+/* Cria uma borda superior */
+border-top: 1px solid #D1D5DB;
+
+}
+
+footer p {
+/* Utiliza a cor secundária para o rodapé */
+color: #6B7280;
+
+/* Define o tamanho do texto */
+font-size: 14px;
+
+/* Remove a margem padrão */
+margin: 0;
+
+}
+
+/*=====================================RESPONSIVIDADE=====================================*/
+
+/* Quando a tela for menor, os cards podem ocupar
+uma linha inteira para facilitar a leitura. */
+
+@media (max-width: 768px) {
+
+section {
+    /* Organiza os cards verticalmente */
+    flex-direction: column;
+}
+
+article {
+    /* Faz cada card ocupar toda a largura disponível */
+    width: 100%;
+}
+
+header h1 {
+    /* Reduz o tamanho do título em telas menores */
+    font-size: 30px;
+}
+
 }
