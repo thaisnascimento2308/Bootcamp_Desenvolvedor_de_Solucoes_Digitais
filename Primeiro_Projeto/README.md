@@ -1,0 +1,1 @@
+Iniciando Primeiro Projeto onde sera desnvolvido uma página HTML com auxilio de IA.
