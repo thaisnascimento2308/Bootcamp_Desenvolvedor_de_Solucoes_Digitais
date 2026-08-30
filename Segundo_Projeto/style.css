@@ -1,0 +1,939 @@
+
+/* =========================================================
+   WEB PET GUIDE
+   STYLE.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIÁVEIS DE CORES
+   ========================================================= */
+
+:root {
+    /* Cores principais */
+    --cor-principal: #2F6F73;
+    --cor-principal-escura: #24575A;
+
+    /* Cores de apoio */
+    --cor-secundaria: #F2A65A;
+    --cor-destaque: #E76F51;
+
+    /* Fundos */
+    --cor-fundo: #F7FAF9;
+    --cor-fundo-card: #FFFFFF;
+    --cor-fundo-destaque: #E8F3F2;
+
+    /* Textos */
+    --cor-texto: #263238;
+    --cor-texto-claro: #5F6F73;
+
+    /* Bordas */
+    --cor-borda: #D8E4E3;
+
+    /* Sombras */
+    --sombra: 0 4px 15px rgba(38, 50, 56, 0.08);
+    --sombra-hover: 0 10px 25px rgba(38, 50, 56, 0.15);
+
+    /* Estrutura */
+    --raio: 12px;
+    --largura-maxima: 1200px;
+
+    /* Espaçamento flexível */
+    --espacamento: clamp(1rem, 2vw, 2rem);
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   3. CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+}
+
+h2 {
+    margin-bottom: 1rem;
+
+    color: var(--cor-principal-escura);
+
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+h3 {
+    margin-bottom: 0.8rem;
+
+    color: var(--cor-principal);
+
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+
+/* =========================================================
+   4. HEADER
+   ========================================================= */
+
+/*
+    Utiliza as cores principais do projeto.
+*/
+
+.site-header {
+    padding: clamp(2.5rem, 7vw, 5rem) 5%;
+
+    color: #FFFFFF;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        var(--cor-principal),
+        var(--cor-principal-escura)
+    );
+}
+
+.site-header h1 {
+    margin-bottom: 1rem;
+
+    color: #FFFFFF;
+}
+
+.site-header > p {
+    width: min(100%, 700px);
+
+    margin: 0 auto 2rem;
+
+    color: #FFFFFF;
+
+    font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+
+/* =========================================================
+   5. NAVEGAÇÃO
+   ========================================================= */
+
+/*
+    Flexbox permite que a navegação se adapte
+    automaticamente ao tamanho da tela.
+*/
+
+nav ul {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 0.7rem;
+
+    list-style: none;
+}
+
+nav a {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 44px;
+
+    padding: 0.65rem 1rem;
+
+    color: #FFFFFF;
+
+    text-decoration: none;
+
+    border: 2px solid transparent;
+    border-radius: 8px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/*
+    Hover utilizando a cor secundária.
+*/
+
+nav a:hover {
+    color: var(--cor-principal-escura);
+
+    background-color: var(--cor-secundaria);
+
+    border-color: var(--cor-secundaria);
+
+    transform: translateY(-2px);
+}
+
+
+/*
+    Foco acessível.
+*/
+
+nav a:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   6. MAIN
+   ========================================================= */
+
+main {
+    width: min(92%, var(--largura-maxima));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   7. SEÇÕES
+   ========================================================= */
+
+main > section {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+}
+
+main > section > header {
+    margin-bottom: 1.5rem;
+}
+
+
+/* =========================================================
+   8. SEÇÕES EDUCATIVAS
+   ========================================================= */
+
+/*
+    As seções utilizam Flexbox.
+
+    Os elementos podem quebrar linha
+    automaticamente conforme a largura disponível.
+*/
+
+#cuidados,
+#alimentacao,
+#bem-estar {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: var(--espacamento);
+}
+
+
+/*
+    Cabeçalho ocupa toda a largura.
+*/
+
+#cuidados > header,
+#alimentacao > header,
+#bem-estar > header {
+    flex: 1 1 100%;
+}
+
+
+/*
+    Parágrafos introdutórios ocupam
+    toda a largura.
+*/
+
+#cuidados > p,
+#alimentacao > p,
+#bem-estar > p {
+    flex: 1 1 100%;
+}
+
+
+/*
+    Cards educativos.
+*/
+
+#cuidados > article,
+#alimentacao > article,
+#bem-estar > article {
+    flex: 1 1 320px;
+
+    min-width: 0;
+
+    padding: clamp(1.2rem, 3vw, 1.8rem);
+
+    background-color: var(--cor-fundo-card);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/*
+    Hover dos cards.
+*/
+
+#cuidados > article:hover,
+#alimentacao > article:hover,
+#bem-estar > article:hover {
+    border-color: var(--cor-secundaria);
+
+    box-shadow: var(--sombra-hover);
+
+    transform: translateY(-5px);
+}
+
+
+/*
+    Títulos dos artigos.
+*/
+
+#cuidados > article h3,
+#alimentacao > article h3,
+#bem-estar > article h3 {
+    color: var(--cor-principal);
+}
+
+
+/* =========================================================
+   9. CARDS DE CUIDADOS
+   ========================================================= */
+
+/*
+    A seção de segurança possui os quatro cards.
+*/
+
+#seguranca {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: var(--espacamento);
+}
+
+
+/*
+    Cabeçalho ocupa toda a linha.
+*/
+
+#seguranca > header {
+    flex: 1 1 100%;
+}
+
+
+/*
+    Cards:
+
+    - crescem quando existe espaço;
+    - diminuem quando necessário;
+    - possuem tamanho inicial de 240px.
+*/
+
+#seguranca > article {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1 1 240px;
+
+    min-width: 0;
+
+    padding: clamp(1.3rem, 3vw, 1.8rem);
+
+    background-color: var(--cor-fundo-card);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/*
+    Hover dos cards de cuidados.
+*/
+
+#seguranca > article:hover {
+    border-color: var(--cor-secundaria);
+
+    box-shadow: var(--sombra-hover);
+
+    transform: translateY(-6px);
+}
+
+
+/*
+    Títulos dos cards recebem
+    a cor de destaque.
+*/
+
+#seguranca > article h3 {
+    color: var(--cor-destaque);
+}
+
+
+/* =========================================================
+   10. GALERIA
+   ========================================================= */
+
+/*
+    A galeria utiliza Flexbox para distribuir
+    os seis cards de pets.
+*/
+
+#galeria {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: var(--espacamento);
+}
+
+
+/*
+    Cabeçalho e texto introdutório
+    ocupam toda a largura.
+*/
+
+#galeria > header,
+#galeria > p {
+    flex: 1 1 100%;
+}
+
+
+/*
+    Card da galeria.
+
+    A largura é flexível.
+*/
+
+#galeria > article {
+    flex: 1 1 280px;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background-color: var(--cor-fundo-card);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/*
+    Hover dos cards da galeria.
+*/
+
+#galeria > article:hover {
+    border-color: var(--cor-secundaria);
+
+    box-shadow: var(--sombra-hover);
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   11. FIGURE
+   ========================================================= */
+
+#galeria figure {
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100%;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   12. IMAGENS DA GALERIA
+   ========================================================= */
+
+/*
+    A imagem acompanha a largura do card.
+
+    aspect-ratio:
+    mantém todas as imagens proporcionais.
+
+    object-fit:
+    evita que as imagens fiquem deformadas.
+*/
+
+#galeria img {
+    width: 100%;
+
+    height: auto;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+
+/*
+    Pequeno efeito de zoom.
+*/
+
+#galeria > article:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   13. FIGCAPTION
+   ========================================================= */
+
+#galeria figcaption {
+    flex: 1;
+
+    padding: 1rem;
+
+    color: var(--cor-texto-claro);
+
+    font-size: clamp(0.9rem, 1.5vw, 0.98rem);
+
+    text-align: center;
+
+    background-color: var(--cor-fundo-card);
+}
+
+
+/* =========================================================
+   14. ASIDE
+   ========================================================= */
+
+/*
+    Área de informação complementar.
+*/
+
+main aside {
+    padding: clamp(1.2rem, 3vw, 1.8rem);
+
+    color: var(--cor-texto);
+
+    background-color: var(--cor-fundo-destaque);
+
+    border-left: 5px solid var(--cor-secundaria);
+
+    border-radius: var(--raio);
+}
+
+
+/*
+    Título da dica.
+*/
+
+main aside h3 {
+    color: var(--cor-principal-escura);
+}
+
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+
+footer {
+    padding: clamp(2.5rem, 6vw, 4rem) 5%;
+
+    color: #FFFFFF;
+
+    text-align: center;
+
+    background-color: var(--cor-principal-escura);
+}
+
+
+/*
+    Título do footer.
+*/
+
+footer h2 {
+    color: #FFFFFF;
+
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
+}
+
+
+/*
+    Texto do footer.
+*/
+
+footer p {
+    width: min(100%, 850px);
+
+    margin: 0.8rem auto;
+
+    color: #E8F3F2;
+}
+
+
+/*
+    Navegação do footer.
+*/
+
+footer nav {
+    margin: 1.5rem 0;
+}
+
+
+/*
+    Links do footer.
+*/
+
+footer nav a {
+    color: #FFFFFF;
+}
+
+
+/*
+    Hover dos links do footer.
+
+    Utiliza a cor principal.
+*/
+
+footer nav a:hover {
+    color: #FFFFFF;
+
+    background-color: var(--cor-principal);
+
+    border-color: var(--cor-principal);
+}
+
+
+/* =========================================================
+   16. TABLET
+   601px ATÉ 900px
+   ========================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    /*
+        Cards de cuidados:
+        dois cards por linha.
+    */
+
+    #seguranca > article {
+        flex: 1 1 calc(50% - var(--espacamento));
+    }
+
+
+    /*
+        Cards educativos:
+        dois por linha.
+    */
+
+    #cuidados > article,
+    #alimentacao > article,
+    #bem-estar > article {
+        flex: 1 1 calc(50% - var(--espacamento));
+    }
+
+
+    /*
+        Galeria:
+        dois pets por linha.
+    */
+
+    #galeria > article {
+        flex: 1 1 calc(50% - var(--espacamento));
+    }
+
+
+    /*
+        Imagens continuam proporcionais
+        aos cards.
+    */
+
+    #galeria img {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+
+/* =========================================================
+   17. DESKTOP
+   A PARTIR DE 901px
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    /*
+        Quatro cards de cuidados
+        em uma linha.
+    */
+
+    #seguranca > article {
+        flex: 1 1 calc(25% - var(--espacamento));
+    }
+
+
+    /*
+        Dois artigos educativos
+        por linha.
+    */
+
+    #cuidados > article,
+    #alimentacao > article,
+    #bem-estar > article {
+        flex: 1 1 calc(50% - var(--espacamento));
+    }
+
+
+    /*
+        Três pets por linha.
+    */
+
+    #galeria > article {
+        flex: 1 1 calc(33.333% - var(--espacamento));
+    }
+}
+
+
+/* =========================================================
+   18. MOBILE
+   ATÉ 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /*
+        Cabeçalho compacto.
+    */
+
+    .site-header {
+        padding: 2.5rem 1.2rem;
+    }
+
+
+    /*
+        Navegação vertical.
+    */
+
+    .site-header nav ul {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0.5rem;
+    }
+
+
+    /*
+        Links ocupam toda a largura.
+    */
+
+    .site-header nav a {
+        display: flex;
+
+        width: 100%;
+    }
+
+
+    /*
+        Main ocupa quase toda
+        a largura da tela.
+    */
+
+    main {
+        width: 92%;
+    }
+
+
+    /*
+        Todos os cards ficam
+        em uma única coluna.
+    */
+
+    #seguranca > article,
+    #cuidados > article,
+    #alimentacao > article,
+    #bem-estar > article,
+    #galeria > article {
+        flex: 1 1 100%;
+    }
+
+
+    /*
+        Imagens maiores no celular,
+        mas sempre proporcionais.
+    */
+
+    #galeria img {
+        aspect-ratio: 16 / 10;
+    }
+
+
+    /*
+        Reduz o espaçamento das seções.
+    */
+
+    main > section {
+        padding: 2.5rem 0;
+    }
+
+
+    /*
+        Footer compacto.
+    */
+
+    footer {
+        padding: 2.5rem 1.2rem;
+    }
+
+
+    /*
+        Navegação do footer vertical.
+    */
+
+    footer nav ul {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    footer nav a {
+        display: flex;
+
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   19. TELAS MUITO PEQUENAS
+   ATÉ 400px
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .site-header h1 {
+        font-size: 2rem;
+    }
+
+
+    .site-header > p {
+        font-size: 1rem;
+    }
+
+
+    main {
+        width: 94%;
+    }
+
+
+    #seguranca > article,
+    #cuidados > article,
+    #alimentacao > article,
+    #bem-estar > article,
+    #galeria > article {
+        padding: 1.2rem;
+    }
+
+
+    #galeria img {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+
+/* =========================================================
+   20. ACESSIBILIDADE
+   ========================================================= */
+
+/*
+    Foco visível para navegação pelo teclado.
+*/
+
+a:focus-visible {
+    outline: 3px solid var(--cor-secundaria);
+
+    outline-offset: 4px;
+}
+
+
+/*
+    Reduz animações para usuários
+    que preferem menos movimento.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+    }
+}
