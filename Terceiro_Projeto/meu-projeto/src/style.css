@@ -1,0 +1,50 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configurações gerais */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fff7fb;
+  color: #333;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+/* Mostra claramente o elemento que recebeu foco pelo teclado */
+a:focus {
+  outline: 3px solid #ffd166;
+  outline-offset: 3px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 700px) {
+  .cabecalho h1 {
+    font-size: 2rem;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+  }
+}
