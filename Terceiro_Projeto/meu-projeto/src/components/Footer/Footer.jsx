@@ -1,11 +1,15 @@
 import React from 'react'
 
-export default function Footer() {
+function Footer() {
   return (
-    <footer>
+    <footer className="rodape">
+      <p>Missão concluída!</p>
+
       <p>
-        Projeto desenvolvido para apender React, com o objetivo de criar uma aplicação simples e funcional.
+        Projeto desenvolvido para aprender React.js.
       </p>
     </footer>
-  )
+  );
 }
+
+export default Footer;
