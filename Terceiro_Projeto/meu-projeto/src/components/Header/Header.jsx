@@ -1,17 +1,25 @@
 import React from 'react'
+import './Header.css'
 
 function Header() {
   return (
     <header className="cabecalho">
-      <div className="container">
-        <h1>Lili Elegância Plus</h1>
+      <div className="cabecalho-container">
 
-        <p className="frase">
-          Vista-se com confiança, valorize sua beleza e seja você mesma!
+        <h1 className="cabecalho-titulo">
+          Lili Elegancia Plus
+        </h1>
+
+        <p className="cabecalho-frase">
+          Vista-se com confiança e valorize sua beleza!
         </p>
 
-        <nav aria-label="Navegação principal">
+        <nav
+          className="cabecalho-navegacao"
+          aria-label="Navegação principal"
+        >
           <ul className="menu">
+
             <li>
               <a href="#inicio">Início</a>
             </li>
@@ -23,8 +31,10 @@ function Header() {
             <li>
               <a href="#feedbacks">Feedbacks</a>
             </li>
+
           </ul>
         </nav>
+
       </div>
     </header>
   );

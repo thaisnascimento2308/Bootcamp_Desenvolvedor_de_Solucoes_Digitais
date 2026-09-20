@@ -1,0 +1,212 @@
+
+/*
+  ============================================
+  HEADER - LILI ELEGANCIA PLUS
+  ============================================
+
+  Este arquivo contém apenas os estilos
+  relacionados ao componente Header.
+
+  A estrutura utiliza Flexbox para facilitar
+  a organização dos elementos e permitir
+  adaptação para diferentes tamanhos de tela.
+*/
+
+
+/*
+  CABEÇALHO
+
+  display: flex permite organizar os elementos
+  do cabeçalho de forma flexível.
+
+  padding utiliza rem para que o espaçamento
+  acompanhe o tamanho da fonte do navegador.
+
+  A cor escura cria contraste com o texto branco,
+  facilitando a leitura.
+*/
+
+.cabecalho {
+  background-color: #6d214f;
+  color: #ffffff;
+  padding: 2rem 1rem;
+}
+
+
+/*
+  CONTAINER
+
+  max-width evita que o conteúdo fique muito
+  espalhado em telas grandes.
+
+  margin: 0 auto centraliza o conteúdo.
+
+  width: 100% permite ocupar todo o espaço
+  disponível em telas pequenas.
+*/
+
+.cabecalho-container {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  text-align: center;
+}
+
+
+/*
+  TÍTULO
+
+  clamp() permite que o tamanho da fonte
+  se adapte automaticamente ao tamanho
+  da tela.
+
+  Isso evita títulos muito grandes no celular
+  ou muito pequenos no desktop.
+*/
+
+.cabecalho-titulo {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1.2;
+  margin: 0;
+}
+
+
+/*
+  FRASE
+
+  max-width melhora a legibilidade ao limitar
+  o comprimento da linha.
+
+  line-height maior facilita a leitura.
+*/
+
+.cabecalho-frase {
+  max-width: 40rem;
+  margin: 0;
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/*
+  NAVEGAÇÃO
+
+  width: 100% permite que a navegação ocupe
+  toda a largura disponível.
+*/
+
+.cabecalho-navegacao {
+  width: 100%;
+}
+
+
+/*
+  MENU
+
+  Flexbox organiza os links horizontalmente
+  em telas maiores.
+
+  flex-wrap permite que os itens quebrem
+  linha caso não exista espaço suficiente.
+*/
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0.75rem 1.5rem;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+/*
+  LINKS
+
+  O padding aumenta a área clicável.
+
+  Isso é importante para acessibilidade,
+  principalmente em dispositivos móveis.
+*/
+
+.menu a {
+  display: inline-block;
+
+  padding: 0.75rem 1rem;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  border-radius: 0.5rem;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/*
+  HOVER
+
+  Feedback visual quando o usuário passa
+  o mouse sobre o link.
+*/
+
+.menu a:hover {
+  background-color: #ffffff;
+  color: #6d214f;
+}
+
+
+/*
+  FOCUS
+
+  O outline permite que usuários que navegam
+  utilizando teclado saibam qual link está
+  selecionado.
+
+  Isso melhora a acessibilidade.
+*/
+
+.menu a:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: 3px;
+}
+
+
+/*
+  TABLET E DESKTOP
+
+  A partir de 48rem aumentamos alguns
+  espaçamentos para aproveitar melhor
+  telas maiores.
+*/
+
+@media (min-width: 48rem) {
+  .cabecalho {
+    padding: 2.5rem 2rem;
+  }
+
+  .cabecalho-container {
+    gap: 1.25rem;
+  }
+
+  .menu {
+    gap: 1rem 2rem;
+  }
+}
