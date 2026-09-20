@@ -1,10 +1,14 @@
-import React from 'react';
+import React from 'react'
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
 
 function App(){
   return(
     <>
-    <h1>Minha primeira aplicação React</h1>
-    <h2>Bem-vindo ao React!</h2>
+    <Header />
+    <Main />
+    <Footer />
     </>
   )
 }
