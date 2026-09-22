@@ -218,68 +218,286 @@ Foram aplicadas algumas práticas básicas de acessibilidade:
 
 ---
 
-# 📊 Comparação dos projetos
+👗 Projeto 3 — Lili Elegancia Plus
+📖 Sobre
 
-| Característica          | Projeto 1 | Projeto 2 |
-| ----------------------- | --------- | --------- |
-| HTML5                   | ✅         | ✅         |
-| Estrutura HTML          | ✅         | ✅         |
-| CSS3                    | ❌         | ✅         |
-| HTML semântico          | Básico    | ✅         |
-| Flexbox                 | ❌         | ✅         |
-| Responsividade          | Básica    | ✅         |
-| Media Queries           | ❌         | ✅         |
-| CSS Variables           | ❌         | ✅         |
-| Cards                   | ❌         | ✅         |
-| Galeria                 | Básica    | ✅         |
-| `figure` / `figcaption` | ❌         | ✅         |
-| Acessibilidade          | Básica    | ✅         |
-| Efeitos `hover`         | ❌         | ✅         |
-| Design responsivo       | ❌         | ✅         |
+O terceiro projeto representa uma nova etapa na evolução dos estudos de Desenvolvimento Web, introduzindo React.js e componentização.
 
----
+O projeto consiste em uma página de uma loja fictícia de roupas plus size, chamada Lili Elegancia Plus.
 
-# 📈 Evolução do aprendizado
+A aplicação foi desenvolvida com foco em uma estrutura simples e organizada, utilizando componentes funcionais do React, HTML semântico, CSS separado por componente, responsividade e acessibilidade.
 
-Os dois projetos representam uma evolução gradual no desenvolvimento web.
+🎯 Objetivos
+Introduzir React.js;
+Criar componentes funcionais;
+Compreender a composição de componentes;
+Separar a interface em diferentes partes;
+Utilizar JSX;
+Praticar HTML semântico dentro do React;
+Organizar CSS por componente;
+Utilizar Flexbox;
+Utilizar CSS Grid;
+Desenvolver uma interface responsiva;
+Aplicar boas práticas de acessibilidade;
+Trabalhar a organização de um projeto React com Vite.
+⚛️ React e Componentização
 
-### Projeto 1
+A página foi dividida em três componentes principais:
 
-**HTML → Estrutura**
+App
+│
+├── Header
+├── Main
+└── Footer
+
+O App.jsx é responsável por reunir os componentes e definir a ordem em que eles aparecem na página.
+
+function App() {
+  return (
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
+  );
+}
+
+Essa organização facilita a compreensão, manutenção e evolução da aplicação.
+
+🧩 Header
+
+O componente Header.jsx é responsável pelo cabeçalho da página.
+
+Ele apresenta:
+
+Nome da loja;
+Frase de autoestima;
+Menu de navegação;
+Links para as seções da página.
+
+Foi utilizado HTML semântico:
+
+<header>
+<nav>
+<ul>
+<li>
+<a>
+
+Também foi utilizado:
+
+aria-label="Navegação principal"
+
+para auxiliar usuários que utilizam tecnologias assistivas.
+
+🏠 Main
+
+O componente Main.jsx representa o conteúdo principal da aplicação.
+
+A seção apresenta:
+
+Título principal;
+Texto de apresentação;
+Cards de produtos;
+Área de feedbacks.
+
+Os cards foram estruturados utilizando:
+
+<article>
+
+permitindo uma organização semântica do conteúdo.
+
+👗 Cards
+
+A página apresenta três cards:
+
+Vestidos
+Conjuntos
+Acessórios
+
+Cada card possui um título e uma descrição curta.
+
+🦶 Footer
+
+O componente Footer.jsx representa o rodapé da aplicação.
+
+Ele apresenta:
+
+Missão concluída!
+
+E a mensagem:
+
+Projeto desenvolvido para aprender React.js.
+
+🎨 Organização dos estilos
+
+Diferentemente dos projetos anteriores, o terceiro projeto organiza o CSS separadamente para cada componente.
+
+components/
+│
+├── Header.jsx
+├── Header.css
+│
+├── Main.jsx
+├── Main.css
+│
+├── Footer.jsx
+└── Footer.css
+
+Essa organização permite que cada componente mantenha seus estilos relacionados de maneira mais clara.
+
+📐 Flexbox e CSS Grid
+
+O projeto utiliza Flexbox para organização de elementos como:
+
+Cabeçalho;
+Menu;
+Footer;
+Áreas de conteúdo.
+
+Também utiliza CSS Grid para organizar os cards.
+
+No mobile:
+
+grid-template-columns: 1fr;
+
+No tablet:
+
+grid-template-columns: repeat(2, 1fr);
+
+No desktop:
+
+grid-template-columns: repeat(3, 1fr);
+
+Dessa forma, os cards se adaptam ao tamanho disponível.
+
+📱 Responsividade
+
+O projeto utiliza uma abordagem Mobile First, permitindo adaptação para:
+
+📱 Smartphone
+Cards em uma coluna;
+Menu adaptável;
+Espaçamentos menores;
+Conteúdo ajustado à largura da tela.
+📲 Tablet
+Cards organizados em duas colunas;
+Maior aproveitamento do espaço disponível.
+🖥️ Desktop
+Três cards lado a lado;
+Conteúdo centralizado;
+Maior aproveitamento da largura da tela.
+
+Foram utilizadas unidades flexíveis como:
+
+rem
+%
+vw
+clamp()
+♿ Acessibilidade
+
+O projeto aplica práticas de acessibilidade, incluindo:
+
+HTML semântico;
+aria-label;
+aria-labelledby;
+Foco visível para navegação pelo teclado;
+Contraste adequado;
+Áreas de toque maiores nos links;
+Textos com boa legibilidade;
+Estrutura de títulos organizada.
+🛠️ Tecnologias utilizadas
+⚛️ React.js
+⚡ Vite
+🟨 JavaScript
+🌐 HTML5
+🎨 CSS3
+📐 Flexbox
+🗂️ CSS Grid
+♿ Acessibilidade Web
+📱 Responsive Design
+📊 Comparação dos projetos
+Característica	Projeto 1	Projeto 2	Projeto 3
+HTML5	✅	✅	✅
+CSS3	❌	✅	✅
+HTML semântico	Básico	✅	✅
+Flexbox	❌	✅	✅
+CSS Grid	❌	❌	✅
+Responsividade	Básica	✅	✅
+Media Queries	❌	✅	✅
+CSS Variables	❌	✅	—
+Cards	❌	✅	✅
+Galeria	Básica	✅	❌
+figure / figcaption	❌	✅	❌
+React.js	❌	❌	✅
+JSX	❌	❌	✅
+Componentes funcionais	❌	❌	✅
+CSS separado por componente	❌	❌	✅
+Acessibilidade	Básica	✅	✅
+Efeitos hover	❌	✅	✅
+Design responsivo	❌	✅	✅
+📈 Evolução do aprendizado
+
+Os três projetos representam uma evolução gradual no desenvolvimento web.
+
+Projeto 1
+
+HTML → Estrutura
 
 O foco principal foi compreender como uma página web é construída utilizando HTML.
 
 ⬇️
 
-### Projeto 2
+Projeto 2
 
-**HTML Semântico → CSS → Flexbox → Responsividade → Acessibilidade**
+HTML Semântico → CSS → Flexbox → Responsividade → Acessibilidade
 
 No segundo projeto, os conhecimentos foram ampliados para criar uma página mais estruturada, visualmente organizada e adaptável a diferentes dispositivos.
 
----
+⬇️
 
-# 🛠️ Tecnologias
+Projeto 3
 
-### Projeto 1
+React → JSX → Componentização → CSS Grid → Responsividade → Acessibilidade
 
-* HTML5
+No terceiro projeto, o aprendizado avançou para o desenvolvimento de interfaces utilizando React.js e componentes funcionais.
 
-### Projeto 2
+A página passou a ser dividida em partes independentes:
 
-* HTML5
-* CSS3
-* Flexbox
-* CSS Variables
-* Media Queries
-* Responsive Design
-* Acessibilidade Web
+Header
+   ↓
+Main
+   ↓
+Footer
 
----
+Essa evolução representa a passagem de páginas HTML tradicionais para uma abordagem baseada em componentes reutilizáveis e organização modular.
 
-# 📂 Organização do repositório
+🛠️ Tecnologias
 
-```text
+Projeto 1
+HTML5
+Projeto 2
+HTML5
+CSS3
+Flexbox
+CSS Variables
+Media Queries
+Responsive Design
+Acessibilidade Web
+Projeto 3
+React.js
+Vite
+JavaScript
+JSX
+HTML5
+CSS3
+Flexbox
+CSS Grid
+Media Queries
+Responsive Design
+Acessibilidade Web
+
+📂 Organização do repositório
+
 projetos-desenvolvimento-web/
 │
 ├── Projeto_1/
@@ -291,30 +509,44 @@ projetos-desenvolvimento-web/
 │   ├── style.css
 │   └── README.md
 │
+├── Projeto_3/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Header.css
+│   │   │   ├── Main.jsx
+│   │   │   ├── Main.css
+│   │   │   ├── Footer.jsx
+│   │   │   └── Footer.css
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── README.md
+│
 └── README.md
-```
 
----
+🎓 Contexto
 
-# 🎓 Contexto
+Os projetos foram desenvolvidos como parte da jornada de aprendizado em Desenvolvimento Web, com o objetivo de transformar conceitos teóricos em aplicações práticas.
 
-Os projetos foram desenvolvidos como parte da jornada de aprendizado em **Desenvolvimento Web**, com o objetivo de transformar conceitos teóricos em aplicações práticas.
+A evolução entre os projetos demonstra a aplicação progressiva de conceitos relacionados à construção, estilização, organização, acessibilidade, adaptação de páginas web e desenvolvimento de interfaces utilizando React.
 
-A evolução entre os projetos demonstra a aplicação progressiva de conceitos relacionados à construção, estilização, organização e adaptação de páginas web.
+📌 Status
+Projeto	Status
+Projeto 1 — Página HTML	✅ Concluído
+Projeto 2 — Web Pet Guide	✅ Concluído
+Projeto 3 — Lili Elegancia Plus	🚧 Em desenvolvimento
 
----
+👩‍💻 Autora
 
-# 📌 Status
-
-| Projeto                   | Status      |
-| ------------------------- | ----------- |
-| Projeto 1 — Página HTML   | ✅ Concluído |
-| Projeto 2 — Web Pet Guide | ✅ Concluído |
-
----
-
-## 👩‍💻 Autora
-
-**Thais Nascimento**
+Thais Nascimento
 
 Projeto desenvolvido para fins educacionais e de prática em desenvolvimento web.
+
+🔗 GitHub:
+https://github.com/thaisnascimento2308
+
+🔗 LinkedIn:
+https://linkedin.com/in/thais-nascimento-dev/
