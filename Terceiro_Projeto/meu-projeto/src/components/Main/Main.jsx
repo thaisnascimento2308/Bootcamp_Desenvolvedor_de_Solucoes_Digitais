@@ -1,85 +1,69 @@
-import React from 'react'
-import './Main.css'
-
-import "./Main.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Main.css';
 
 function Main() {
+  // Guarda todos os produtos recebidos da API.
+  const [info, setInfo] = useState([]);
+  const [error, setError] = useState("");
+
+  // Busca os produtos na API quando o componente é carregado.
+  const pegarDados = async () => {
+    try{
+      const dados = await axios.get("https://fakestoreapi.com/products");
+      // Guarda os produtos recebidos no estado.
+      setInfo(dados.data);
+    } catch (errorDaRequisicao) {
+      setError("Erro ao buscar dados:", errorDaRequisicao);
+    } finally{
+      console.log("Requisição finalizada");
+    }
+  };
+
+  // Executa a função uma vez quando o Main é montado.
+  useEffect(() => {
+    pegarDados();
+  }, []);
+
+  /*
+    Filtra os produtos de acordo com o texto digitado.
+
+    toLowerCase() deixa a busca independente de
+    letras maiúsculas ou minúsculas.
+
+    includes() verifica se o texto digitado
+    existe dentro do título do produto.
+  */
+  const filtrarProdutos = info.filter((item) =>
+    item.category === "electronics",
+  );
+
   return (
-    <main id="inicio" className="conteudo-principal">
+    <main className="main">
+      {error && <p className="error-message">{error}</p>}
+      <section className="products-container">
+        {info.map((item) => (
+          <article className="product-card" key={item.id}>
+            <img className="product-image" src={item.image} alt={item.title} />
 
-      <section
-        className="apresentacao"
-        aria-labelledby="titulo-apresentacao"
-      >
-        <h2 id="titulo-apresentacao">
-          Moda plus size para todos os estilos
-        </h2>
-
-        <p>
-          Na Lili Elegancia Plus você encontra peças pensadas
-          para valorizar sua beleza, seu conforto e sua personalidade.
-        </p>
-      </section>
-
-
-      <section
-        id="pecas"
-        className="pecas"
-        aria-labelledby="titulo-pecas"
-      >
-        <h2 id="titulo-pecas">
-          Conheça nossas opções
-        </h2>
-
-        <div className="cards-container">
-
-          <article className="card">
-            <h3>Vestidos</h3>
-
-            <p>
-              Modelos confortáveis para você se sentir
-              linda em qualquer ocasião.
-            </p>
-          </article>
-
-
-          <article className="card">
-            <h3>Conjuntos</h3>
-
-            <p>
-              Combinações práticas para criar looks
-              modernos e cheios de estilo.
-            </p>
-          </article>
-
-
-          <article className="card">
-            <h3>Acessórios</h3>
-
-            <p>
-              Detalhes que completam seu visual
-              e valorizam seu estilo.
-            </p>
-          </article>
-
+        <div className="product-content">
+          <h2 className="product-title">{item.title}</h2>
+          <p className="product-price">R$ {item.price.toFixed(2)}</p>
         </div>
+      </article>
+    ))}
+
+        {filtrarProdutos.map((item) => (
+          <article className="product-card" key={item.id}>
+            <img className="product-image" src={item.image} alt={item.title} />
+
+            <div className="product-content">
+              <h2 className="product-title">{item.title}</h2>
+              <p className="product-price">R$ {item.price.toFixed(2)}</p>
+            </div>
+          </article>
+        ))}
       </section>
-
-
-      <section
-        id="feedbacks"
-        className="feedbacks"
-        aria-labelledby="titulo-feedbacks"
-      >
-        <h2 id="titulo-feedbacks">
-          Feedbacks
-        </h2>
-
-        <blockquote>
-          "Me senti linda, confortável e muito mais confiante!"
-        </blockquote>
-      </section>
-
     </main>
   );
 }

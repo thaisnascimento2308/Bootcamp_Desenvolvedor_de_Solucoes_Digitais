@@ -1,82 +1,20 @@
 /*
-  ============================================
-  FOOTER - LILI ELEGANCIA PLUS
-  ============================================
-
-  Este arquivo contém os estilos exclusivos
-  do rodapé da aplicação.
+  Estilos exclusivos do componente Footer.
 */
 
-
-/*
-  RODAPÉ
-
-  Flexbox organiza os textos verticalmente
-  no mobile.
-
-  A cor escura mantém o padrão visual
-  utilizado no Header.
-
-  O contraste entre fundo escuro e texto
-  branco facilita a leitura.
-*/
-
-.rodape {
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 0.5rem;
-
-  padding: 2rem 1rem;
-
-  background-color: #6d214f;
-
-  color: #ffffff;
+.footer {
+  width: 100%;
+  padding: 24px;
 
   text-align: center;
+
+  background-color: #ffffff;
+  border-top: 1px solid #e5e5e5;
 }
 
-
-/*
-  PARÁGRAFOS
-
-  margin: 0 remove espaçamentos automáticos
-  do navegador.
-
-  line-height melhora a legibilidade.
-*/
-
-.rodape p {
+.footer p {
   margin: 0;
 
-  font-size: 1rem;
-
-  line-height: 1.5;
-}
-
-
-/*
-  DESTAQUE DA MENSAGEM PRINCIPAL
-*/
-
-.rodape p:first-child {
-  font-weight: 700;
-}
-
-
-/*
-  TABLET E DESKTOP
-
-  Aumentamos o espaçamento interno em telas
-  maiores para aproveitar melhor o espaço.
-*/
-
-@media (min-width: 48rem) {
-  .rodape {
-    padding: 2.5rem 2rem;
-  }
+  font-size: 0.9rem;
+  color: #666666;
 }
