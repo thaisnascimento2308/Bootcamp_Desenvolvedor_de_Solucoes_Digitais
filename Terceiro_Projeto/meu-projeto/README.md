@@ -1,31 +1,53 @@
 # 👗 Lili Elegancia Plus
 
-Uma página desenvolvida em **React.js** para apresentar uma loja fictícia de roupas plus size, utilizando componentes funcionais, HTML semântico, CSS organizado por componentes e boas práticas de acessibilidade.
+Uma aplicação web desenvolvida em **React.js + Vite** para simular um e-commerce fictício de roupas plus size.
+
+O projeto foi desenvolvido como parte do **🚀 Desafio 02: Painel Interativo com API Pública**, com foco no consumo de uma API REST, manipulação de dados, componentização, responsividade e interação com o usuário.
 
 ---
 
 ## 📖 O que é?
 
-O **Lili Elegancia Plus** é um projeto educacional criado para praticar conceitos fundamentais do desenvolvimento Front-End com **React.js**.
+O **Lili Elegancia Plus** é um projeto educacional criado para praticar conceitos fundamentais do desenvolvimento Front-End com **React.js**, utilizando dados reais fornecidos por uma API pública.
 
-A aplicação simula uma página inicial de uma loja de roupas plus size, apresentando:
+A aplicação utiliza a **Fake Store API** para buscar informações de produtos e apresentá-las de maneira organizada através de cards.
 
-* Cabeçalho com navegação;
-* Conteúdo principal com apresentação da loja;
-* Cards de produtos;
-* Área de feedbacks;
-* Rodapé informativo.
+Além da visualização dos produtos, o usuário pode utilizar o campo de **busca** para encontrar produtos pelo nome.
 
-O principal objetivo do projeto é aprender e aplicar:
+O projeto permite praticar:
 
-✅ Componentes funcionais no React
-✅ Organização de arquivos
-✅ HTML semântico
-✅ CSS modularizado
-✅ Responsividade
-✅ Acessibilidade
-✅ Boas práticas de UI/UX
+* 🔌 Consumo de API REST;
+* ⚛️ Componentes funcionais no React;
+* 🪝 `useState`;
+* 🪝 `useEffect`;
+* 📡 Axios;
+* 🔎 Filtragem de dados;
+* 🔄 Renderização dinâmica com `.map()`;
+* 📱 Responsividade;
+* ♿ Acessibilidade;
+* 🎨 Organização de CSS;
+* 🧩 Componentização.
+---
 
+## 💡 Problemática
+
+Atualmente, muitas informações estão disponíveis através de APIs públicas, porém os dados retornados precisam ser organizados para que possam ser apresentados de maneira simples e compreensível para o usuário.
+
+A proposta deste projeto é transformar os dados disponibilizados por uma API pública em uma interface visual organizada, permitindo que o usuário consulte e pesquise produtos de maneira simples.
+---
+
+## 🎯 Objetivo
+
+Desenvolver uma aplicação React funcional e responsiva capaz de:
+
+* Consumir uma API pública;
+* Apresentar os dados recebidos de forma organizada;
+* Utilizar estados do React;
+* Criar componentes com responsabilidades claras;
+* Permitir interação com os dados;
+* Criar uma interface responsiva;
+* Praticar o consumo de uma API REST;
+* Documentar o desenvolvimento do projeto.
 ---
 
 ## 🚀 Tecnologias Utilizadas
@@ -39,22 +61,35 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 * 🟨 JavaScript (ES6+)
 * 🌐 HTML5
 * 🎨 CSS3
+* 📡 Axios
+
+### API
+
+* 🛒 Fake Store API
+
+Endpoint utilizado:
+
+https://fakestoreapi.com/products
 
 ### Conceitos Aplicados
 
+* 📦 Componentização
+* 🪝 `useState`
+* 🪝 `useEffect`
+* 🔌 Consumo de API REST
+* 🔎 `filter()`
+* 🔄 `map()`
 * 📱 Responsividade
 * ♿ Acessibilidade
-* 📦 Componentização
-* 📐 Flexbox
-* 🗂️ CSS Grid
-* 🏗️ HTML Semântico
+* 🎨 CSS Grid
+* 🏗️ HTML semântico
 
 ### Ferramentas
 
 * 💻 Visual Studio Code
 * 🐙 Git
 * 🌍 GitHub
-
+* 🚀 Vite
 ---
 
 ## ▶️ Como Executar o Projeto
@@ -69,125 +104,244 @@ Antes de iniciar, você precisa ter instalado:
 Verifique as versões:
 
 node -v
-git --version
 
+git --version
 ---
 
 ### 1. Clonar o repositório
+git clone URL_DO_REPOSITORIO
 
-git clone https://github.com/seu-usuario/lili-elegancia-plus.git
-
+> Substitua `URL_DO_REPOSITORIO` pelo endereço do repositório no GitHub.
 ---
 
 ### 2. Entrar na pasta do projeto
-
 cd meu-projeto
-
 ---
 
 ### 3. Instalar as dependências
-
 npm install
-
-ou
-
-yarn
-
 ---
 
-### 4. Executar o projeto
+### 4. Instalar o Axios
+npm install axios
+---
 
+### 5. Executar o projeto
+bash
 npm run dev
 
-ou
-
-yarn dev
-
 ---
 
-### 5. Abrir no navegador
-
+### 6. Abrir no navegador
 Normalmente o projeto será executado em:
 
 http://localhost:5173
 
+O endereço exato será informado pelo Vite no terminal.
 ---
 
 ## ⚙️ Como Funciona?
 
-A aplicação foi desenvolvida utilizando a arquitetura baseada em componentes do React.
+A aplicação utiliza a arquitetura baseada em componentes do React.
 
-Cada parte da página possui seu próprio componente e seu arquivo de estilização.
+O componente `Main` é responsável pelo consumo da API e pela apresentação dos produtos.
 
-### Estrutura do Projeto
+O fluxo principal da aplicação funciona da seguinte maneira:
+
+Fake Store API
+      ↓
+     Axios
+      ↓
+   useEffect
+      ↓
+   response.data
+      ↓
+   setProducts()
+      ↓
+    useState
+      ↓
+      map()
+      ↓
+Cards de produtos
+
+O usuário também pode realizar uma busca:
+
+Usuário digita
+      ↓
+   useState
+      ↓
+    filter()
+      ↓
+Produtos filtrados
+      ↓
+Cards atualizados
+---
+
+## 📂 Estrutura do Projeto
 
 src/
 │
 ├── components/
 │   │
-│   ├── Header.jsx
-│   ├── Header.css
+│   ├── Header/
+│   │   ├── Header.jsx
+│   │   └── Header.css
 │   │
-│   ├── Main.jsx
-│   ├── Main.css
+│   ├── Main/
+│   │   ├── Main.jsx
+│   │   └── Main.css
 │   │
-│   ├── Footer.jsx
-│   └── Footer.css
+│   └── Footer/
+│       ├── Footer.jsx
+│       └── Footer.css
 │
 ├── App.jsx
-└── main.jsx
+├── App.css
+├── main.jsx
+└── style.css
 
 ---
 
-### Componentes
+## 🧩 Componentes
 
 ### 🧩 Header
 
 Responsável por:
 
-* Exibir o nome da loja;
-* Mostrar uma frase de autoestima;
-* Criar a navegação da página.
+* Exibir o nome da aplicação;
+* Apresentar uma breve mensagem relacionada à proposta da loja.
 
 Tecnologias utilizadas:
 
-* HTML semântico (`header`, `nav`, `ul`, `li`);
-* Flexbox;
-* Acessibilidade com `aria-label`.
-
+* HTML semântico;
+* CSS;
+* Responsividade.
 ---
 
 ### 🧩 Main
 
+É o principal componente da aplicação.
+
 Responsável por:
 
-* Apresentação da loja;
-* Cards de produtos;
-* Área de feedbacks.
+* Consumir a Fake Store API;
+* Armazenar os produtos utilizando `useState`;
+* Realizar a requisição através do Axios;
+* Utilizar `useEffect` para realizar a requisição quando o componente é montado;
+* Criar a busca de produtos;
+* Filtrar os produtos utilizando `filter()`;
+* Renderizar os produtos utilizando `map()`;
+* Exibir os cards dos produtos.
 
-Tecnologias utilizadas:
+Cada card apresenta:
 
-* `main`, `section`, `article`;
-* CSS Grid;
-* Layout responsivo.
+* 🖼️ Imagem;
+* 📝 Título;
+* 💰 Preço.
 
+Exemplo de renderização:
+
+jsx
+products.map((product) => (
+  <article key={product.id}>
+    <img
+      src={product.image}
+      alt={product.title}
+    />
+
+    <h3>{product.title}</h3>
+
+    <p>{product.price}</p>
+  </article>
+))
 ---
 
 ### 🧩 Footer
 
 Responsável por:
 
-* Exibir informações finais do projeto;
-* Finalizar a página visualmente.
+* Exibir os direitos reservados;
+* Finalizar visualmente a aplicação.
 
 Tecnologias utilizadas:
 
-* Flexbox;
-* Contraste adequado de cores.
-
+* HTML semântico;
+* CSS;
+* Responsividade.
 ---
 
-### 🎨 Organização do CSS
+## 🔌 Consumo da API
+
+A aplicação utiliza o **Axios** para realizar uma requisição HTTP GET:
+
+javascript
+const response = await axios.get(
+  'https://fakestoreapi.com/products'
+);
+
+Após a resposta da API, os dados são armazenados no estado:
+
+javascript
+setProducts(response.data);
+
+Dessa forma, os produtos recebidos ficam disponíveis para serem apresentados na interface.
+---
+
+## 🪝 useEffect
+
+O `useEffect` é utilizado para executar a requisição quando o componente `Main` é montado.
+
+javascript
+useEffect(() => {
+  pegarDados();
+}, []);
+
+O array de dependências vazio `[]` faz com que o efeito seja executado na montagem do componente.
+---
+
+## 🪝 useState
+
+O `useState` é utilizado para armazenar os produtos recebidos da API:
+
+javascript
+const [products, setProducts] = useState([]);
+
+Também é utilizado para armazenar o texto digitado pelo usuário no campo de busca:
+
+javascript
+const [search, setSearch] = useState('');
+---
+
+## 🔎 Busca de Produtos
+
+A aplicação possui uma funcionalidade de interação através de uma busca por nome.
+
+O usuário pode digitar o nome ou parte do nome de um produto.
+
+O método `filter()` é utilizado para criar uma nova lista com os produtos correspondentes:
+
+javascript
+const produtosFiltrados = products.filter((product) =>
+  product.title.toLowerCase().includes(search.toLowerCase())
+);
+
+O resultado da busca é apresentado automaticamente na interface.
+
+Caso nenhum produto seja encontrado, a aplicação apresenta uma mensagem informando:
+
+Nenhum produto encontrado.
+---
+
+## 🃏 Renderização dos Produtos
+
+O método `.map()` é utilizado para percorrer os produtos recebidos pela API.
+
+Para cada produto, um card é criado dinamicamente.
+
+Isso permite que a aplicação apresente qualquer quantidade de produtos retornados pela API sem precisar criar os cards manualmente.
+---
+
+## 🎨 Organização do CSS
 
 O projeto utiliza CSS separado por componente:
 
@@ -197,59 +351,147 @@ Footer.css
 
 Essa organização facilita:
 
-✅ Manutenção
-✅ Escalabilidade
-✅ Reutilização
-✅ Leitura do código
+* ✅ Manutenção;
+* ✅ Organização;
+* ✅ Leitura do código;
+* ✅ Separação de responsabilidades;
+* ✅ Evolução do projeto.
 
+Os estilos globais ficam separados dos estilos específicos dos componentes.
 ---
 
-### 📱 Responsividade
+## 📱 Responsividade
 
-O projeto foi desenvolvido utilizando conceitos Mobile First:
+O projeto foi desenvolvido para funcionar adequadamente em diferentes tamanhos de tela:
 
-* 📱 Smartphones
-* 📲 Tablets
-* 💻 Desktop
+* 📱 Smartphones;
+  -- 📲 Tablets;
+* 💻 Desktops.
 
-Foram utilizadas unidades flexíveis como:
+O layout dos produtos utiliza **CSS Grid**.
 
-rem
-%
-vw
-clamp()
+Em telas maiores, os produtos são apresentados em múltiplas colunas.
 
+Em telas menores, a quantidade de colunas é reduzida para facilitar a visualização.
+
+No smartphone, os produtos são apresentados em uma única coluna.
 ---
 
-### ♿ Acessibilidade
+## ♿ Acessibilidade
 
-Foram aplicadas boas práticas como:
+Foram aplicadas boas práticas de acessibilidade, incluindo:
 
 * HTML semântico;
-* Contraste adequado;
-* Navegação por teclado;
-* `aria-label`;
-* Áreas de toque maiores para dispositivos móveis.
+* `alt` descritivo nas imagens;
+* Uso do título do produto fornecido pela API no `alt`;
+* `label` associado ao campo de busca;
+* Foco visível no campo de pesquisa;
+* Elementos com tamanho adequado para interação.
 
+Exemplo:
+
+jsx
+<img
+  src={product.image}
+  alt={product.title}
+/>
+
+O atributo `alt` utiliza o próprio título fornecido pela API.
 ---
 
 ## 🌎 Onde Posso Acessar?
 
-Projeto local:
+### 💻 Projeto local
 
 http://localhost:5173
 
-Deploy (link será adicionado quando for publicado):
+### 🚀 Vercel
 
-### Vercel
+Link da aplicação publicada:
 
-https://meu-projeto.vercel.app (link será adicionado quando for publicado)
+A adicionar após o deploy
 
-### GitHub Pages
+### 🌐 Netlify
 
-https://github.com/thaisnascimento2308/Bootcamp_Desenvolvedor_de_Solucoes_Digitais/Terceiro_Projeto.git
+Link da aplicação publicada:
 
+A adicionar após o deploy
+---
 
+## 💻 Repositório
+
+### GitHub
+
+Repositório do projeto:
+
+A adicionar/confirmar após o envio do projeto
+---
+
+## 🤖 Uso de Inteligência Artificial
+
+A Inteligência Artificial foi utilizada como ferramenta de apoio durante o desenvolvimento do projeto.
+
+Ela foi utilizada para:
+
+* pesquisar e compreender conceitos;
+* auxiliar na organização dos componentes;
+* compreender o consumo da API;
+* identificar e corrigir erros;
+* auxiliar na implementação da busca;
+* melhorar a organização do código;
+* auxiliar na responsividade;
+* melhorar a documentação do projeto.
+
+A IA foi utilizada como apoio ao desenvolvimento, sendo necessário compreender o funcionamento do código e das decisões utilizadas na aplicação.
+
+### 📌 Prompt utilizado
+
+> "Atue como um Desenvolvedor Front-end Senior e Especialista em Ensino de React. Crie uma aplicação web didática em React chamada Lili Elegância Plus, que consiste em um e-commerce fictício voltado para o aprendizado prático de consumo de APIs REST. Utilize axios para buscar os dados da Fake Store API, useEffect com array de dependências vazio e useState para armazenar os produtos. A aplicação deve possuir Header, Main e Footer, cards de produtos, CSS responsivo e comentários didáticos no código."
+
+### 🎯 Objetivo
+
+Utilizei esse prompt para compreender como estruturar uma aplicação React que consome uma API pública, organiza os dados recebidos em componentes e apresenta os produtos de forma responsiva.
+
+A IA também foi utilizada como apoio para compreender e corrigir problemas encontrados durante o desenvolvimento.
+---
+
+## 📚 Objetivo Acadêmico
+
+Este projeto foi desenvolvido com fins educacionais para praticar:
+
+* React.js;
+* Vite;
+* Componentes funcionais;
+* `useState`;
+* `useEffect`;
+* Axios;
+* Consumo de API REST;
+* `map()`;
+* `filter()`;
+* JavaScript;
+* CSS moderno;
+* CSS Grid;
+* Responsividade;
+* Acessibilidade;
+* Organização de projetos Front-End.
+---
+
+## ✅ Checklist do Desafio 02
+
+* [x] React + Vite
+* [x] API pública
+* [x] Axios
+* [x] Dados da API apresentados na interface
+* [x] Componentes separados
+* [x] Interação com os dados
+* [x] Busca por produto
+* [x] Responsividade
+* [x] CSS separado por componente
+* [x] Acessibilidade básica
+* [x] README documentado
+* [x] Uso de IA documentado
+* [x] Repositório publicado no GitHub
+* [x] Aplicação publicada na Vercel ou Netlify
 ---
 
 ## 👩‍💻 Quem Desenvolveu?
@@ -259,24 +501,12 @@ https://github.com/thaisnascimento2308/Bootcamp_Desenvolvedor_de_Solucoes_Digita
 Estudante de Engenharia de Software e desenvolvedora Front-End em formação.
 
 🔗 GitHub:
+
 https://github.com/thaisnascimento2308
 
 🔗 LinkedIn:
+
 https://linkedin.com/in/thais-nascimento-dev/
-
 ---
 
-## 📚 Objetivo Acadêmico
-
-Este projeto foi desenvolvido com fins educacionais para praticar:
-
-* React.js
-* Componentes funcionais
-* CSS moderno
-* Responsividade
-* Acessibilidade
-* Organização de projetos Front-End
-
----
-
-⭐ Se você gostou do projeto, deixe uma estrela no repositório!
+⭐ Projeto desenvolvido para fins educacionais como parte do **Desafio 02 — Painel Interativo com API Pública**.
