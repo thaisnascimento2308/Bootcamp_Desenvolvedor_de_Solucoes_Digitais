@@ -2,6 +2,8 @@
   Estilos exclusivos do componente Main.
 */
 
+/* Área principal */
+
 .main {
   width: 100%;
   min-height: 70vh;
@@ -9,70 +11,20 @@
   background-color: #faf8fa;
 }
 
-.products-section {
+/* Container dos produtos */
+
+.products-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-}
 
-.intro {
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.intro h2 {
-  margin: 0 0 10px;
-  color: #333333;
-  font-size: 1.8rem;
-}
-
-.intro p {
-  margin: 0;
-  color: #666666;
-}
-
-/* Área de busca */
-.search-container {
-  max-width: 600px;
-  margin: 0 auto 40px;
-}
-
-.search-container label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #333333;
-}
-
-.search-container input {
-  width: 100%;
-  padding: 14px 16px;
-
-  border: 1px solid #cccccc;
-  border-radius: 8px;
-
-  background-color: #ffffff;
-  color: #333333;
-
-  font-size: 1rem;
-}
-
-.search-container input:focus {
-  outline: 2px solid #8b5e83;
-  outline-offset: 2px;
-}
-
-/* Grid dos produtos */
-.products-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
 }
 
-/* Card */
+/* Card do produto */
+
 .product-card {
   display: flex;
   flex-direction: column;
@@ -91,15 +43,19 @@
     box-shadow 0.2s ease;
 }
 
+/* Efeito ao passar o mouse */
+
 .product-card:hover {
   transform: translateY(-4px);
 
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Imagem */
+/* Imagem do produto */
+
 .product-image {
+  display: block;
+
   width: 100%;
   height: 240px;
 
@@ -110,16 +66,20 @@
   background-color: #ffffff;
 }
 
-/* Informações */
-.product-info {
+/* Conteúdo do card */
+
+.product-content {
   display: flex;
   flex-direction: column;
+
   flex: 1;
 
   padding: 20px;
 }
 
-.product-info h3 {
+/* Título do produto */
+
+.product-title {
   margin: 0 0 16px;
 
   color: #333333;
@@ -127,6 +87,8 @@
   font-size: 1rem;
   line-height: 1.5;
 }
+
+/* Preço */
 
 .product-price {
   margin: auto 0 0;
@@ -137,42 +99,81 @@
   font-weight: 700;
 }
 
-/* Mensagem quando não encontrar produtos */
-.no-results {
-  margin-top: 30px;
+/* Mensagem de erro */
+
+.error-message {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto 30px;
+  padding: 16px 20px;
 
   text-align: center;
 
-  color: #666666;
+  color: #8b1e3f;
+
+  background-color: #fff0f3;
+
+  border: 1px solid #f0b6c4;
+  border-radius: 8px;
+
+  font-size: 1rem;
 }
 
 /* Tablet */
+
 @media (max-width: 768px) {
   .main {
     padding: 30px 16px;
   }
 
-  .products-grid {
+  .products-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
   }
 
   .product-image {
     height: 200px;
+    padding: 16px;
+  }
+
+  .product-content {
+    padding: 16px;
+  }
+
+  .product-title {
+    font-size: 0.95rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
   }
 }
 
-/* Smartphone */
+/* Celular */
+
 @media (max-width: 480px) {
   .main {
     padding: 24px 12px;
   }
 
-  .products-grid {
+  .products-container {
     grid-template-columns: 1fr;
   }
 
   .product-image {
     height: 240px;
+  }
+
+  .product-content {
+    padding: 18px;
+  }
+
+  .product-title {
+    font-size: 1rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
   }
 }
