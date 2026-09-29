@@ -327,7 +327,7 @@ http://localhost:5173
 
 Link da aplicação publicada:
 
-https://bootcamp-desenvolvedor-de-solucoes-digitais-gc5k1zior.vercel.app
+https://bootcamp-desenvolvedor-de-solucoes-digitais-1ate66yl4.vercel.app
 ---
 
 ## 💻 Repositório
