@@ -1,85 +1,78 @@
-import React from 'react'
-import './Main.css'
-
-import "./Main.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Main.css';
 
 function Main() {
+  /*
+    useState cria um estado chamado "info".
+
+    Inicialmente, o estado recebe um array vazio [].
+    Depois que a API responder, utilizaremos setInfo()
+    para armazenar os produtos recebidos.
+  */
+  const [info, setInfo] = useState([]);
+
+  /*
+    Esta função realiza a requisição para a Fake Store API.
+
+    O axios.get() faz uma requisição HTTP do tipo GET
+    para buscar os produtos.
+  */
+  const pegarDados = async () => {
+    const response = await axios.get(
+      'https://fakestoreapi.com/products'
+    );
+
+    /*
+      response.data contém os dados enviados pela API.
+
+      setInfo() atualiza o estado "info" com os produtos.
+      Quando o estado é atualizado, o React renderiza
+      novamente o componente.
+    */
+    setInfo(response.data);
+  };
+
+  /*
+    useEffect executa o código quando o componente
+    é montado.
+
+    O array [] significa que esse efeito será executado
+    apenas uma vez.
+  */
+  useEffect(() => {
+    pegarDados();
+  }, []);
+
   return (
-    <main id="inicio" className="conteudo-principal">
+    <main className="main">
+      <h1>Lili Elegância Plus</h1>
 
-      <section
-        className="apresentacao"
-        aria-labelledby="titulo-apresentacao"
-      >
-        <h2 id="titulo-apresentacao">
-          Moda plus size para todos os estilos
-        </h2>
+      <section className="products-grid">
+        {/*
+          O método map() percorre todos os produtos
+          armazenados no estado "info".
 
-        <p>
-          Na Lili Elegancia Plus você encontra peças pensadas
-          para valorizar sua beleza, seu conforto e sua personalidade.
-        </p>
-      </section>
+          Para cada produto, um novo <article> é criado.
+        */}
+        {info.map((item) => (
+          <article className="product-card" key={item.id}>
+            <img
+              src={item.image}
+              alt={item.title}
+            />
 
-
-      <section
-        id="pecas"
-        className="pecas"
-        aria-labelledby="titulo-pecas"
-      >
-        <h2 id="titulo-pecas">
-          Conheça nossas opções
-        </h2>
-
-        <div className="cards-container">
-
-          <article className="card">
-            <h3>Vestidos</h3>
+            <h2>{item.title}</h2>
 
             <p>
-              Modelos confortáveis para você se sentir
-              linda em qualquer ocasião.
+              {item.price.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              })}
             </p>
           </article>
-
-
-          <article className="card">
-            <h3>Conjuntos</h3>
-
-            <p>
-              Combinações práticas para criar looks
-              modernos e cheios de estilo.
-            </p>
-          </article>
-
-
-          <article className="card">
-            <h3>Acessórios</h3>
-
-            <p>
-              Detalhes que completam seu visual
-              e valorizam seu estilo.
-            </p>
-          </article>
-
-        </div>
+        ))}
       </section>
-
-
-      <section
-        id="feedbacks"
-        className="feedbacks"
-        aria-labelledby="titulo-feedbacks"
-      >
-        <h2 id="titulo-feedbacks">
-          Feedbacks
-        </h2>
-
-        <blockquote>
-          "Me senti linda, confortável e muito mais confiante!"
-        </blockquote>
-      </section>
-
     </main>
   );
 }
