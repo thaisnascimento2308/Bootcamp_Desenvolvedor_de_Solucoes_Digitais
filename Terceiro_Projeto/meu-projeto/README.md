@@ -111,7 +111,7 @@ git --version
 ### 1. Clonar o repositório
 git clone URL_DO_REPOSITORIO
 
-> Substitua `URL_DO_REPOSITORIO` pelo endereço do repositório no GitHub.
+> Substitua `https://github.com/thaisnascimento2308/Bootcamp_Desenvolvedor_de_Solucoes_Digitais/tree/main/Terceiro_Projeto/meu-projeto` pelo endereço do repositório no GitHub.
 ---
 
 ### 2. Entrar na pasta do projeto
@@ -239,22 +239,6 @@ Cada card apresenta:
 * 📝 Título;
 * 💰 Preço.
 
-Exemplo de renderização:
-
-jsx
-products.map((product) => (
-  <article key={product.id}>
-    <img
-      src={product.image}
-      alt={product.title}
-    />
-
-    <h3>{product.title}</h3>
-
-    <p>{product.price}</p>
-  </article>
-))
----
 
 ### 🧩 Footer
 
@@ -281,64 +265,9 @@ const response = await axios.get(
 
 Após a resposta da API, os dados são armazenados no estado:
 
-javascript
-setProducts(response.data);
+setInfo(dados.data);
 
 Dessa forma, os produtos recebidos ficam disponíveis para serem apresentados na interface.
----
-
-## 🪝 useEffect
-
-O `useEffect` é utilizado para executar a requisição quando o componente `Main` é montado.
-
-javascript
-useEffect(() => {
-  pegarDados();
-}, []);
-
-O array de dependências vazio `[]` faz com que o efeito seja executado na montagem do componente.
----
-
-## 🪝 useState
-
-O `useState` é utilizado para armazenar os produtos recebidos da API:
-
-javascript
-const [products, setProducts] = useState([]);
-
-Também é utilizado para armazenar o texto digitado pelo usuário no campo de busca:
-
-javascript
-const [search, setSearch] = useState('');
----
-
-## 🔎 Busca de Produtos
-
-A aplicação possui uma funcionalidade de interação através de uma busca por nome.
-
-O usuário pode digitar o nome ou parte do nome de um produto.
-
-O método `filter()` é utilizado para criar uma nova lista com os produtos correspondentes:
-
-javascript
-const produtosFiltrados = products.filter((product) =>
-  product.title.toLowerCase().includes(search.toLowerCase())
-);
-
-O resultado da busca é apresentado automaticamente na interface.
-
-Caso nenhum produto seja encontrado, a aplicação apresenta uma mensagem informando:
-
-Nenhum produto encontrado.
----
-
-## 🃏 Renderização dos Produtos
-
-O método `.map()` é utilizado para percorrer os produtos recebidos pela API.
-
-Para cada produto, um card é criado dinamicamente.
-
-Isso permite que a aplicação apresente qualquer quantidade de produtos retornados pela API sem precisar criar os cards manualmente.
 ---
 
 ## 🎨 Organização do CSS
@@ -388,17 +317,6 @@ Foram aplicadas boas práticas de acessibilidade, incluindo:
 * Foco visível no campo de pesquisa;
 * Elementos com tamanho adequado para interação.
 
-Exemplo:
-
-jsx
-<img
-  src={product.image}
-  alt={product.title}
-/>
-
-O atributo `alt` utiliza o próprio título fornecido pela API.
----
-
 ## 🌎 Onde Posso Acessar?
 
 ### 💻 Projeto local
@@ -409,13 +327,7 @@ http://localhost:5173
 
 Link da aplicação publicada:
 
-A adicionar após o deploy
-
-### 🌐 Netlify
-
-Link da aplicação publicada:
-
-A adicionar após o deploy
+https://bootcamp-desenvolvedor-de-solucoes-digitais-gc5k1zior.vercel.app
 ---
 
 ## 💻 Repositório
@@ -423,8 +335,8 @@ A adicionar após o deploy
 ### GitHub
 
 Repositório do projeto:
+https://github.com/thaisnascimento2308/Bootcamp_Desenvolvedor_de_Solucoes_Digitais/tree/main/Terceiro_Projeto/meu-projeto
 
-A adicionar/confirmar após o envio do projeto
 ---
 
 ## 🤖 Uso de Inteligência Artificial
@@ -444,15 +356,78 @@ Ela foi utilizada para:
 
 A IA foi utilizada como apoio ao desenvolvimento, sendo necessário compreender o funcionamento do código e das decisões utilizadas na aplicação.
 
-### 📌 Prompt utilizado
+### ### 🤖 Uso de Inteligência Artificial
 
-> "Atue como um Desenvolvedor Front-end Senior e Especialista em Ensino de React. Crie uma aplicação web didática em React chamada Lili Elegância Plus, que consiste em um e-commerce fictício voltado para o aprendizado prático de consumo de APIs REST. Utilize axios para buscar os dados da Fake Store API, useEffect com array de dependências vazio e useState para armazenar os produtos. A aplicação deve possuir Header, Main e Footer, cards de produtos, CSS responsivo e comentários didáticos no código."
+Durante o desenvolvimento do projeto, utilizei Inteligência Artificial como ferramenta de apoio para compreender conceitos, estruturar o código, identificar erros e melhorar a organização do projeto.
 
-### 🎯 Objetivo
+#### Prompt utilizado
 
-Utilizei esse prompt para compreender como estruturar uma aplicação React que consome uma API pública, organiza os dados recebidos em componentes e apresenta os produtos de forma responsiva.
+> Estou desenvolvendo o **Desafio 02 – Painel Interativo com API Pública usando React + Vite** da Kodie Academy.
+>
+> Quero desenvolver uma aplicação chamada **Lili Elegância Plus**, uma página de produtos inspirada em uma loja de roupas e acessórios.
+>
+> O projeto deve utilizar:
+>
+> * React.js;
+> * Vite;
+> * JavaScript;
+> * HTML semântico;
+> * CSS separado dos arquivos JSX;
+> * Axios para realizar a requisição HTTP;
+> * uma API pública de produtos;
+> * `useState` para armazenar os dados recebidos da API;
+> * `useEffect` para realizar a requisição quando o componente for carregado;
+> * `map()` para percorrer e renderizar os produtos;
+> * `filter()` para implementar uma interação de busca/filtro;
+> * CSS Grid e Flexbox para organizar os produtos;
+> * layout responsivo para desktop, tablet e celular.
+>
+> A aplicação deve possuir os componentes:
+>
+> * `Header.jsx` e `Header.css`;
+> * `Main.jsx` e `Main.css`;
+> * `Footer.jsx` e `Footer.css`.
+>
+> O `Header` deve apresentar o nome **Lili Elegância Plus**.
+>
+> O `Main` deve realizar a requisição para a API, armazenar os produtos no estado e apresentar cada produto em um card contendo:
+>
+> * imagem;
+> * texto alternativo na imagem;
+> * nome do produto;
+> * preço formatado em reais;
+> * categoria, quando disponível.
+>
+> A aplicação também deve possuir uma interação que permita ao usuário pesquisar ou filtrar produtos.
+>
+> O código deve ser simples, organizado e adequado para uma pessoa que está aprendendo React. Explique os principais conceitos utilizados, principalmente `useState`, `useEffect`, Axios, `map()` e `filter()`.
+>
+> Não utilize bibliotecas desnecessárias ou soluções avançadas. Mantenha a estrutura do projeto fácil de compreender e com comentários explicativos no código.
+>
+> Também preciso de um CSS responsivo, utilizando Grid/Flexbox, com cards organizados, imagens sem distorção, boa hierarquia visual, espaçamento adequado e adaptação para telas menores.
+>
+> Caso exista algum erro no código, explique primeiro a causa do erro e depois apresente a correção, para que eu consiga entender o que foi alterado.
+>
+> Ao final, ajude a estruturar um README contendo:
+>
+> 1. nome do projeto;
+> 2. descrição;
+> 3. problema;
+> 4. objetivo;
+> 5. tecnologias utilizadas;
+> 6. API utilizada;
+> 7. funcionalidades;
+> 8. estrutura dos componentes;
+> 9. como executar o projeto;
+> 10. como funciona a integração com a API;
+> 11. responsividade;
+> 12. acessibilidade;
+> 13. uso de Inteligência Artificial;
+> 14. link do GitHub;
+> 15. link da aplicação publicada.
+>
+> Quero que as soluções sejam explicadas de forma didática, com linguagem simples e sem gerar código desnecessariamente complexo.
 
-A IA também foi utilizada como apoio para compreender e corrigir problemas encontrados durante o desenvolvimento.
 ---
 
 ## 📚 Objetivo Acadêmico
@@ -474,24 +449,6 @@ Este projeto foi desenvolvido com fins educacionais para praticar:
 * Responsividade;
 * Acessibilidade;
 * Organização de projetos Front-End.
----
-
-## ✅ Checklist do Desafio 02
-
-* [x] React + Vite
-* [x] API pública
-* [x] Axios
-* [x] Dados da API apresentados na interface
-* [x] Componentes separados
-* [x] Interação com os dados
-* [x] Busca por produto
-* [x] Responsividade
-* [x] CSS separado por componente
-* [x] Acessibilidade básica
-* [x] README documentado
-* [x] Uso de IA documentado
-* [x] Repositório publicado no GitHub
-* [x] Aplicação publicada na Vercel ou Netlify
 ---
 
 ## 👩‍💻 Quem Desenvolveu?
