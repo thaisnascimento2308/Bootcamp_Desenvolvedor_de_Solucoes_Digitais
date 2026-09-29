@@ -4,10 +4,9 @@
 
 .main {
   width: 100%;
-  min-height: calc(100vh - 160px);
+  min-height: 70vh;
   padding: 40px 24px;
-  background-color: #fafafa;
-  box-sizing: border-box;
+  background-color: #faf8fa;
 }
 
 .products-section {
@@ -16,35 +15,72 @@
   margin: 0 auto;
 }
 
-.products-section h2 {
-  margin: 0 0 30px;
+.intro {
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 1.8rem;
-  color: #222222;
 }
 
-/*
-  CSS Grid é utilizado para organizar os cards.
+.intro h2 {
+  margin: 0 0 10px;
+  color: #333333;
+  font-size: 1.8rem;
+}
 
-  No desktop, cada coluna possui no mínimo 220px.
-  O "auto-fit" permite que o navegador determine
-  automaticamente quantas colunas cabem na tela.
-*/
+.intro p {
+  margin: 0;
+  color: #666666;
+}
+
+/* Área de busca */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.search-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 14px 16px;
+
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+
+  background-color: #ffffff;
+  color: #333333;
+
+  font-size: 1rem;
+}
+
+.search-container input:focus {
+  outline: 2px solid #8b5e83;
+  outline-offset: 2px;
+}
+
+/* Grid dos produtos */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
   gap: 24px;
 }
 
-/*
-  Card individual de cada produto.
-*/
+/* Card */
 .product-card {
   display: flex;
   flex-direction: column;
+
   overflow: hidden;
 
   background-color: #ffffff;
+
   border: 1px solid #e5e5e5;
   border-radius: 12px;
 
@@ -55,32 +91,26 @@
     box-shadow 0.2s ease;
 }
 
-/*
-  Pequeno efeito visual quando o usuário
-  passa o mouse sobre o card.
-*/
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/*
-  Área da imagem.
-*/
+/* Imagem */
 .product-image {
   width: 100%;
   height: 240px;
 
   padding: 20px;
-  box-sizing: border-box;
 
   object-fit: contain;
+
   background-color: #ffffff;
 }
 
-/*
-  Área com título e preço.
-*/
+/* Informações */
 .product-info {
   display: flex;
   flex-direction: column;
@@ -92,26 +122,31 @@
 .product-info h3 {
   margin: 0 0 16px;
 
+  color: #333333;
+
   font-size: 1rem;
   line-height: 1.5;
-  color: #333333;
 }
 
-/*
-  Preço do produto.
-*/
 .product-price {
   margin: auto 0 0;
 
+  color: #8b5e83;
+
   font-size: 1.2rem;
   font-weight: 700;
-  color: #8b5e83;
 }
 
-/*
-  Em telas menores, diminuímos o espaço
-  para aproveitar melhor a tela.
-*/
+/* Mensagem quando não encontrar produtos */
+.no-results {
+  margin-top: 30px;
+
+  text-align: center;
+
+  color: #666666;
+}
+
+/* Tablet */
 @media (max-width: 768px) {
   .main {
     padding: 30px 16px;
@@ -127,11 +162,12 @@
   }
 }
 
-/*
-  Em smartphones, os produtos passam para
-  uma única coluna.
-*/
+/* Smartphone */
 @media (max-width: 480px) {
+  .main {
+    padding: 24px 12px;
+  }
+
   .products-grid {
     grid-template-columns: 1fr;
   }

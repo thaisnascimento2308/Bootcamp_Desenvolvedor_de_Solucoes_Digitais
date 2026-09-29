@@ -1,21 +1,28 @@
-/*
-  Estilos exclusivos do componente Footer.
-*/
-
-.footer {
-  width: 100%;
-  padding: 24px;
+* {
   box-sizing: border-box;
-
-  text-align: center;
-
-  background-color: #ffffff;
-  border-top: 1px solid #e5e5e5;
 }
 
-.footer p {
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
   margin: 0;
 
-  font-size: 0.9rem;
-  color: #666666;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background-color: #faf8fa;
+  color: #222222;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }

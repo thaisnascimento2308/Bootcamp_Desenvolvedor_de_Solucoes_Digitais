@@ -4,18 +4,25 @@ import './Main.css';
 
 function Main() {
   /*
-    useState cria um estado chamado "info".
+    products armazena todos os produtos recebidos da API.
 
-    Inicialmente, o estado recebe um array vazio [].
-    Depois que a API responder, utilizaremos setInfo()
-    para armazenar os produtos recebidos.
+    setProducts é responsável por atualizar essa lista.
   */
-  const [info, setInfo] = useState([]);
+  const [products, setProducts] = useState([]);
 
   /*
-    Esta função realiza a requisição para a Fake Store API.
+    search armazena o texto digitado pelo usuário
+    no campo de busca.
 
-    O axios.get() faz uma requisição HTTP do tipo GET
+    Dessa forma, conseguimos criar uma interação
+    entre o usuário e os dados da API.
+  */
+  const [search, setSearch] = useState('');
+
+  /*
+    Função responsável por consumir a API.
+
+    axios.get() realiza uma requisição HTTP GET
     para buscar os produtos.
   */
   const pegarDados = async () => {
@@ -24,54 +31,103 @@ function Main() {
     );
 
     /*
-      response.data contém os dados enviados pela API.
+      response.data contém os produtos retornados pela API.
 
-      setInfo() atualiza o estado "info" com os produtos.
-      Quando o estado é atualizado, o React renderiza
-      novamente o componente.
+      setProducts atualiza o estado com os dados recebidos.
     */
-    setInfo(response.data);
+    setProducts(response.data);
   };
 
   /*
-    useEffect executa o código quando o componente
-    é montado.
+    O useEffect é executado quando o componente
+    Main é montado.
 
-    O array [] significa que esse efeito será executado
-    apenas uma vez.
+    O array vazio [] significa que a requisição
+    será realizada uma vez.
   */
   useEffect(() => {
     pegarDados();
   }, []);
 
+  /*
+    O filter() cria uma nova lista contendo apenas
+    os produtos cujo título possui o texto digitado.
+
+    toLowerCase() permite que a busca não diferencie
+    letras maiúsculas de minúsculas.
+  */
+  const produtosFiltrados = products.filter((product) =>
+    product.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <main className="main">
-      <h1>Lili Elegância Plus</h1>
+      <section className="products-section">
 
-      <section className="products-grid">
+        <div className="intro">
+          <h2>Produtos</h2>
+
+          <p>
+            Explore nossa coleção e encontre o produto
+            que combina com você.
+          </p>
+        </div>
+
+        {/* Campo de busca utilizado como interação */}
+        <div className="search-container">
+          <label htmlFor="search">
+            Buscar produto
+          </label>
+
+          <input
+            id="search"
+            type="search"
+            placeholder="Digite o nome de um produto..."
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
+        </div>
+
         {/*
-          O método map() percorre todos os produtos
-          armazenados no estado "info".
-
-          Para cada produto, um novo <article> é criado.
+          O map() percorre a lista filtrada e cria
+          um card para cada produto.
         */}
-        {info.map((item) => (
-          <article className="product-card" key={item.id}>
-            <img
-              src={item.image}
-              alt={item.title}
-            />
+        <section className="products-grid">
+          {produtosFiltrados.map((product) => (
+            <article
+              className="product-card"
+              key={product.id}
+            >
+              <img
+                src={product.image}
+                alt={product.title}
+                className="product-image"
+              />
 
-            <h2>{item.title}</h2>
+              <div className="product-info">
+                <h3>{product.title}</h3>
 
-            <p>
-              {item.price.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-              })}
-            </p>
-          </article>
-        ))}
+                <p className="product-price">
+                  {product.price.toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  })}
+                </p>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        {/*
+          Se a busca não encontrar nenhum produto,
+          mostramos uma mensagem para o usuário.
+        */}
+        {produtosFiltrados.length === 0 && (
+          <p className="no-results">
+            Nenhum produto encontrado.
+          </p>
+        )}
+
       </section>
     </main>
   );
