@@ -82,7 +82,7 @@ O desenvolvimento teve como foco a criação de uma página organizada, acessív
 
 O projeto utiliza diferentes elementos semânticos do HTML5, incluindo:
 
-```html
+html
 <header>
 <nav>
 <main>
@@ -92,7 +92,6 @@ O projeto utiliza diferentes elementos semânticos do HTML5, incluindo:
 <figcaption>
 <aside>
 <footer>
-```
 
 A utilização desses elementos melhora a organização estrutural da página e facilita a compreensão do conteúdo por navegadores, mecanismos de busca e tecnologias assistivas.
 
@@ -127,12 +126,11 @@ O layout utiliza **Flexbox** para organizar os conteúdos e cards.
 
 Foram utilizados recursos como:
 
-```css
+css
 display: flex;
 flex-wrap: wrap;
 gap;
 flex;
-```
 
 Essa abordagem permite que os elementos se adaptem ao espaço disponível sem depender de larguras fixas.
 
@@ -178,12 +176,11 @@ A página possui uma galeria com seis animais:
 
 As imagens utilizam:
 
-```html
+html
 <figure>
     <img>
     <figcaption>
 </figure>
-```
 
 Também foram utilizados textos alternativos (`alt`) para melhorar a acessibilidade.
 
